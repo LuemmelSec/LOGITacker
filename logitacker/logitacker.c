@@ -31,6 +31,7 @@
 #include "nrf_log.h"
 #include "logitacker_processor_covert_channel.h"
 
+char g_logitacker_cli_name[32];
 NRF_LOG_MODULE_REGISTER();
 
 APP_TIMER_DEF(m_timer_next_tx_action);
