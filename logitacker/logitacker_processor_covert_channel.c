@@ -526,7 +526,7 @@ void processor_covert_channel_esb_handler_func_(logitacker_processor_covert_chan
 
     switch (p_esb_event->evt_id) {
         case NRF_ESB_EVENT_TX_FAILED:
-            NRF_LOG_INFO("COVERT CHANNEL TX_FAIL ... re-transmit");
+            // NRF_LOG_INFO("COVERT CHANNEL TX_FAIL ... re-transmit");
             // retransmit
             nrf_esb_start_tx();
             break;
