@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y install wget git gcc-arm-none-eabi unzip sed ma
 # Fetch nRF5 SDK and LOGITacker repo
 RUN wget https://www.nordicsemi.com/-/media/Software-and-other-downloads/SDKs/nRF5/Binaries/nRF5SDK153059ac345.zip \
     && unzip nRF5SDK153059ac345.zip \
-    && git clone https://github.com/RoganDawes/LOGITacker
+    && git clone https://github.com/LuemmelSec/LOGITacker
 
 # Patch SDK for local toolchain
 RUN sed -i "s#^GNU_INSTALL_ROOT.*#GNU_INSTALL_ROOT ?= /usr/bin/#g" \
