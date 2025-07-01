@@ -14,7 +14,6 @@
 #include "logitacker_script_engine.h"
 #include "logitacker_options.h"
 
-
 NRF_LOG_MODULE_REGISTER();
 
 uint8_t tmp_in_rep_buf[4][LOGITACKER_USB_HID_GENERIC_IN_REPORT_MAXSIZE];
